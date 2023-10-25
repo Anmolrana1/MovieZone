@@ -9,14 +9,14 @@ export default function MovieDetail() {
     const currentMovie = useSelector((state) => state.MovieData.movieById);
     useEffect(()=>{
         dispatch(GetMovieById({id}))
-    },[dispatch])
+    },[id,dispatch])
     return (
         <div className="movie">
           <div className='cover_parent'>
-            <img className="coverPosterByid" src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.backdrop_path : ""}`} />
+            <img className="coverPosterByid" alt=" " src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.backdrop_path : ""}`} />
             <div className='details_cover'>
                 <div className='detailsLeft'>
-                    <img className="movie_poster" src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.poster_path : ""}`} />
+                    <img className="movie_poster" alt=" " src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.poster_path : ""}`} />
                 </div>
                 <div className='detailsRight'>
                     <div className='detailsRight_top'>
@@ -64,7 +64,7 @@ export default function MovieDetail() {
                                 company.logo_path 
                                 && 
                                 <span className="productionCompanyImage">
-                                    <img className="movie__productionComapany" src={"https://image.tmdb.org/t/p/original" + company.logo_path} />
+                                    <img className="movie__productionComapany" alt=" " src={"https://image.tmdb.org/t/p/original" + company.logo_path} />
                                     <span className='productin_name'>{company.name}</span>
                                 </span>
                             }
@@ -76,10 +76,10 @@ export default function MovieDetail() {
             <div className="movie__links">
                 
                 {
-                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
+                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
                 }
                 {
-                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
+                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
                 }
             </div>
         </div>
