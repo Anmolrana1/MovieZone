@@ -3,4 +3,4 @@
   publish = "frontend/build/"
 
 [context.production]
-  command = "python backend/backend.py"
+  command = "python flask/backend.py"
