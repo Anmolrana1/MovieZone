@@ -1,9 +1,7 @@
 [build]
   command = "npm run build && source venv/bin/activate && python flask/backend.py"
   publish = "frontend/build/"
-  image = "python:3.8" 
-  publish = "frontend/build/"
+  image = "python:3.8"
 
 [context.production]
   command = "python flask/backend.py"
-  
