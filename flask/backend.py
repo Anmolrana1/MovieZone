@@ -44,5 +44,5 @@ if __name__ == '__main__':
     app.run(debug=True)
     deactivate_this = '/c/Users/dell/Desktop/projects/moviezone/deactivate_this.py'
     with open(deactivate_this) as file_:
-    exec(file_.read(), dict(__file__=deactivate_this))
+        exec(file_.read(), dict(__file__=deactivate_this))
 
