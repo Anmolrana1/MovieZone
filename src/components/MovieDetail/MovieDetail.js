@@ -9,7 +9,7 @@ export default function MovieDetail() {
     const currentMovie = useSelector((state) => state.MovieData.movieById);
     useEffect(()=>{
         dispatch(GetMovieById({id}))
-    },[])
+    },[dispatch])
     return (
         <div className="movie">
           <div className='cover_parent'>
