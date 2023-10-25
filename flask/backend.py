@@ -1,4 +1,4 @@
-activate_this = '/c/Users/dell/Desktop/projects/moviezone/activate_this.py'
+activate_this = '/c/Users/dell/Desktop/projects/moviezone/flask/backend.py'
 with open(activate_this) as file_:
     exec(file_.read(), dict(__file__=activate_this))
 
@@ -42,7 +42,7 @@ def recommend_movies(movie_name, movies_list, similarity):
         return {"error": str(e)}
 if __name__ == '__main__':
     app.run(debug=True)
-    deactivate_this = '/c/Users/dell/Desktop/projects/moviezone/deactivate_this.py'
+    deactivate_this =  '/c/Users/dell/Desktop/projects/moviezone/flask/backend.py'
     with open(deactivate_this) as file_:
         exec(file_.read(), dict(__file__=deactivate_this))
 
