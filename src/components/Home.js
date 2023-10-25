@@ -12,7 +12,7 @@ function Home() {
     const data = useSelector((state) => state.MovieData.movies);
     useEffect(() => {
     dispatch(GetMovie());
-    }, [])
+    }, [dispatch])
     return(
         <div>
             <div className='parent_carousel'>
