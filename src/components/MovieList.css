@@ -1,0 +1,27 @@
+div{
+    color: white;
+}
+.movieList {
+    padding: 0 3rem 3rem 3rem;
+}
+
+.listTitle {
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    margin:  2.5rem;
+    margin-left: 4rem;
+    padding: 0.9rem;
+    font-weight: 900;
+    font-family: cursive;
+    color: black;
+    background-color: rgb(239, 239, 17);
+    width: 10rem;
+    border-radius: 1rem;
+}
+
+.listCards {
+    display: flex;
+    flex-wrap: wrap ;
+    justify-content: center;
+}
