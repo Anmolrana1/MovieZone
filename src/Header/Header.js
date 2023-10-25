@@ -11,7 +11,7 @@ const Header = () => {
   const watchLaterData=useSelector((state)=>state.MovieData.watchLater);
   useEffect(()=>{
       dispatch(serachMovie(searchData))
-  },[searchData,location.pathname]);
+  },[searchData,location.pathname,dispatch]);
 
   useEffect(()=>{
     setserachData("")

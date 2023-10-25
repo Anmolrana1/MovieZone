@@ -12,7 +12,7 @@ function MovieList() {
   useEffect(() => {
     console.log("typewjdfssf",type);
     dispatch(GetPopularMovie({type} || 'popular'));
-  }, [type]);
+  }, [type,dispatch]);
   
   return (
     <div>
