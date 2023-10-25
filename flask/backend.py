@@ -1,3 +1,6 @@
+activate_this = '/c/Users/dell/Desktop/projects/moviezone/activate_this.py'
+
+
 import pickle
 from flask import Flask, request, jsonify
 from flask_cors import CORS
@@ -38,3 +41,6 @@ def recommend_movies(movie_name, movies_list, similarity):
         return {"error": str(e)}
 if __name__ == '__main__':
     app.run(debug=True)
+     deactivate_this = '/c/Users/dell/Desktop/projects/moviezone/deactivate_this.py'
+    with open(deactivate_this) as file_:
+        exec(file_.read(), dict(__file__=deactivate_this))
