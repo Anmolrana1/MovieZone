@@ -4,4 +4,4 @@
   image = "python:3.8"
 
 [context.production]
-  command = "python flask/backend.py"
+  command = "python backend.py"
