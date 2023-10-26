@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app, resources={r"/recommend": {"origins": "https://main--movielover.netlify.app"}})
+cors = CORS(app)
 
 movies_list = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
@@ -38,6 +38,6 @@ def recommend_movies(movie_name, movies_list, similarity):
     except Exception as e:
         return {"error": str(e)}
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=int(os.environ.get('PORT', 5000)), debug=True)
+    app.run(debug=True)
 
 
