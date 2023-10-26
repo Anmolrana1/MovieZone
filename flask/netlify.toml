@@ -1,8 +1,8 @@
 [build]
-  command = "npm run build && pip install -r requirements.txt && python backend.py"
-  publish = "frontend/build/"
-  functions = "netlify_functions" 
+  command = "npm run build && pip install -r flask/requirements.txt"
+  functions = "flask" 
+  publish = "frontend/build"
   image = "python:3.8"
 
 [context.production]
-  command = "python backend.py"
+  command = "python flask/backend.py" 
