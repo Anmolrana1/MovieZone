@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build && source venv/bin/activate && python flask/backend.py"
+  command = "npm run build && pip install -r requirements.txt && python backend.py"
   publish = "frontend/build/"
   image = "python:3.8"
 
