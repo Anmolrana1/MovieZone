@@ -76,7 +76,7 @@ function App() {
             </div>
         </div> 
         <div className='not_found'>{
-          found?'':<h1>not  present</h1>
+          found?'':<h1>Movie Not Found</h1>
         }</div>
     </div>
   );
