@@ -33,7 +33,7 @@ function App() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-       const response = await axios.post('/recommend', {'name': name}, {
+       const response = await axios.post('https://main--movielover.netlify.app/recommend', {'name': name}, {
         headers: {
           'Content-Type': 'application/json', 
         },
