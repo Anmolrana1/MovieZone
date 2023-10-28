@@ -19,7 +19,7 @@ const Cards = ({movie}) => {
         ?
         <div className="cards">
             <SkeletonTheme color="#202020" highlightColor="#444">
-                <Skeleton height={300} duration={2} />
+                <Skeleton height={300} duration={2} count={3}/>
             </SkeletonTheme>
         </div>
         :
