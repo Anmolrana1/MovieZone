@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { GetMovie, GetMovieById, watchLater } from '../../Reducers/MovieReducer'
@@ -14,7 +14,7 @@ export default function MovieDetail() {
     useEffect(()=>{
         dispatch(GetMovieById({id}))
         dispatch(GetMovie());
-    },[dispatch])
+    },[dispatch,id])
    
     return (
         <div className="movie">
