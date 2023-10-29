@@ -1,57 +1,100 @@
-.cards {
-    display: inline-block;
-    transition: transform .2s;
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    margin: 0.28rem;
-    cursor:pointer;
-    min-width:200px;
-    height:300px;
-    z-index:0;
-    border: 1px solid rgb(99, 99, 99);
-}
-
-.cards:hover {
-    transform: scale(1.2);
-    z-index: 1000;
-    
-}
-
-.cards__img {
-    height: 300px;
-}
-
-.cards__overlay {
-    position: absolute;
-    padding: 0 1rem 1rem 1rem;
-    bottom: 0px;
-    height: 290px;
+.nav {
+    padding: 0.5rem;
     display: flex;
-    flex-direction: column;
-    width: 85%;
-    justify-content: flex-end;
-    background-image: linear-gradient(rgb(0,0,0,0), rgb(0,0,0,1));
-    opacity: 0;
-    transition: opacity .3s;
-}   
-
-.cards__overlay:hover {
-    opacity: 1;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
 }
 
-.card__title {
+.navleft {
+    display: flex;
+    align-items: center;
+}
+
+.navleft a {
+    text-decoration: none;
+    color: rgb(249, 246, 246);
+    font-size: x-large;
+    font-family: cursive;
+    font-weight: 700;
+    margin-right: 30px;
+    margin-left: 20px;
+}
+
+.navleft a:hover {
+    text-decoration: underline;
+}
+
+.logo_img {
+    height: 5rem;
+    width: 7rem;
+}
+
+.navRight {
+    display: flex;
+    align-items: center;
+}
+
+.searchBar {
+    width: 18rem;
+    height: 2rem;
+    border-radius: 1rem;
+    background-color: rgb(212, 235, 228);
+    padding-left: 1rem;
+    margin-right: 0.5rem;
+}
+
+.searchButton {
+    height: 2.5rem;
+    width: 6rem;
+    border-radius: 0.8rem;
+    background-color: rgb(243, 107, 10);
+    font-size: large;
+    font-family: cursive;
+    border: 1px solid white;
     font-weight: 900;
-    font-size: 1rem;
-    margin-bottom: 0.4rem;
+    color: white;
 }
 
-.card__runtime {
-    font-size: .75rem;
-    margin-bottom: 0.25rem;
+.searchButton:active {
+    background-color: brown;
+    border: 1px solid black;
 }
-.card__description {
-    font-style: italic;
-    font-size: .75rem;
-    margin-bottom: 0.25rem;
+
+.searchBar:focus {
+    outline: none;
+    border-color: rgb(243, 107, 10);
+}
+
+
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column; 
+        padding: 0.5rem 1rem;
+    }
+
+    .navleft {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navleft a {
+        margin: 10px 0; 
+    }
+
+    .logo_img {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px; 
+    }
+
+    .navRight {
+        width: 100%; 
+        justify-content: center;
+    }
+
+    .searchBar {
+        width: 100%;
+        margin-bottom: 10px; 
+    }
 }
