@@ -1,22 +1,28 @@
-import React, { useEffect } from 'react'
-import { GetMovieById, watchLater } from '../../Reducers/MovieReducer'
+import React, {useState, useEffect } from 'react'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
+import { GetMovie, GetMovieById, watchLater } from '../../Reducers/MovieReducer'
 import { useDispatch,useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom';
 import "./MovieDetail.css"
+import Card from '../Card/Card';
 export default function MovieDetail() {
     const {id}=useParams();
     const dispatch = useDispatch();
     const currentMovie = useSelector((state) => state.MovieData.movieById);
+    const data = useSelector((state) => state.MovieData.movies);
     useEffect(()=>{
         dispatch(GetMovieById({id}))
-    },[id,dispatch])
+        dispatch(GetMovie());
+    },[dispatch])
+   
     return (
         <div className="movie">
           <div className='cover_parent'>
-            <img className="coverPosterByid" alt=" " src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.backdrop_path : ""}`} />
+            <img className="coverPosterByid" alt="img" src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.backdrop_path : ""}`} />
             <div className='details_cover'>
                 <div className='detailsLeft'>
-                    <img className="movie_poster" alt=" " src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.poster_path : ""}`} />
+                    <img className="movie_poster" alt="img" src={`https://image.tmdb.org/t/p/original${currentMovie ? currentMovie.poster_path : ""}`} />
                 </div>
                 <div className='detailsRight'>
                     <div className='detailsRight_top'>
@@ -54,7 +60,21 @@ export default function MovieDetail() {
                 </div>
             </div>
           </div>
-         
+          <div className='movie_carousel'>
+            <Carousel
+            autoPlay={true}
+            transitionTime={500}
+            transitionTimeUnit="ms"
+            infiniteLoop={true}
+            centerMode={true} 
+            showIndicators={false}
+            centerSlidePercentage={13} 
+            >
+                { data.map((movie) => (
+                    <Card key={movie.id} movie={movie} />
+                 ))}
+            </Carousel>
+        </div>
           <div className="movie__heading">Production companies</div>
             <div className="movie__production">
                 {
@@ -64,7 +84,7 @@ export default function MovieDetail() {
                                 company.logo_path 
                                 && 
                                 <span className="productionCompanyImage">
-                                    <img className="movie__productionComapany" alt=" " src={"https://image.tmdb.org/t/p/original" + company.logo_path} />
+                                    <img className="movie__productionComapany" alt="sfas" src={"https://image.tmdb.org/t/p/original" + company.logo_path} />
                                     <span className='productin_name'>{company.name}</span>
                                 </span>
                             }
@@ -72,14 +92,15 @@ export default function MovieDetail() {
                     ))
                 }
             </div>   
+           
             <div className="movie__heading">Useful Links</div>
             <div className="movie__links">
                 
                 {
-                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
+                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
                 }
                 {
-                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
+                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
                 }
             </div>
         </div>
