@@ -97,10 +97,10 @@ export default function MovieDetail() {
             <div className="movie__links">
                 
                 {
-                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" rel="noopener" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
+                    currentMovie && currentMovie.homepage && <a href={currentMovie.homepage} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">Homepage</span></p></a>
                 }
                 {
-                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" rel="noopener" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
+                    currentMovie && currentMovie.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovie.imdb_id} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__Button">IMDb</span></p></a>
                 }
             </div>
         </div>
