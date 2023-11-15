@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
-cors = CORS(app)
+CORS(app, resources={r"/recommend": {"origins": "http://localhost:3000"}, "methods": ["GET", "POST"], "allow_headers": ["Content-Type"]})
 
 movies_list = pickle.load(open('movie_list.pkl', 'rb'))
 similarity = pickle.load(open('similarity.pkl', 'rb'))
