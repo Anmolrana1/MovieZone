@@ -4,5 +4,11 @@
   publish = "frontend/build"
   image = "python:3.8"
 
+[[redirects]]
+  from = "/recommend/*"
+  to = "http://localhost:5000/:splat"
+  status = 200
+  force = true
+
 [context.production]
-  command = "python backend.py" 
+  command = "python backend.py"
