@@ -32,14 +32,18 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const apiUrl = 'http://localhost:5000/recommend';
-    console.log('Sending request to:', apiUrl);
-    try {
-       const response = await axios.post('http://localhost:5000/recommend', {'name': name}, {
-        headers: {
-          'Content-Type': 'application/json', 
-        },
-      });
+        const apiUrl = 'http://localhost:5000/recommend';
+        console.log('Sending request to:', apiUrl);
+        console.log('sending...............');
+        const response = await axios.post(
+          apiUrl,
+          { 'name': name },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
       if(response.data.not_found==='not found') {
         console.log("Movie not found:", response.data.not_found);
         setFound(false)
