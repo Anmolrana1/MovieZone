@@ -30,34 +30,27 @@ function App() {
     });
   }
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-        const apiUrl = 'http://localhost:5000/recommend';
-        console.log('Sending request to:', apiUrl);
-        console.log('sending...............');
-        const response = await axios.post(
-          apiUrl,
-          { 'name': name },
-          {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          }
-        );
-      if(response.data.not_found==='not found') {
-        console.log("Movie not found:", response.data.not_found);
-        setFound(false)
-      } else {
-        console.log('Recommended movie IDs:', response.data); 
-        launch(response.data)
-      }     
-    } catch (error) {
-      console.error('Error sending data:', error);
-      setFound(false)
-    }
-    setCollection([])
-  };
-
+const handleSubmit = async (event) => {
+  event.preventDefault();
+  try {
+    const response = await axios.post('http://localhost:5000/recommend', {'name': name}, {
+      headers: {
+        'Content-Type': 'application/json', 
+      },
+    });
+    if (response.data.not_found === 'not found') {
+      console.log("Movie not found:", response.data.not_found);
+      setFound(false);
+    } else {
+      console.log('Recommended movie IDs:', response.data); 
+      launch(response.data);
+    }     
+  } catch (error) {
+    console.error('Error sending data:', error);
+    setFound(false);
+  }
+  setCollection([]);
+};
   return (
     <div>
       <div className='recommend_label'>
