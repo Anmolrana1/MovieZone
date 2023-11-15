@@ -32,6 +32,8 @@ function App() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    const apiUrl = 'http://localhost:5000/recommend';
+    console.log('Sending request to:', apiUrl);
     try {
        const response = await axios.post('http://localhost:5000/recommend', {'name': name}, {
         headers: {
